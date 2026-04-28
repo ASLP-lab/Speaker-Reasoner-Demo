@@ -234,7 +234,23 @@
     .metric-ds-row { display: flex; gap: 10px; align-items: flex-end; height: 200px; }
     .metric-ds-subgroup { display: flex; flex-direction: column; align-items: center; }
     .metric-model-bars { display: flex; gap: 3px; align-items: flex-end; }
-    .ds-mini-label { font-size: 9px; color: var(--muted); margin-top: 5px; text-align: center; white-space: nowrap; max-width: 64px; overflow: hidden; text-overflow: ellipsis; }
+    .ds-mini-label { margin-top: 5px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .ds-label-text { font-size: 9px; color: var(--muted); white-space: nowrap; max-width: 64px; overflow: hidden; text-overflow: ellipsis; }
+    .lang-badge { display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 99px; letter-spacing: 0.4px; vertical-align: middle; margin-left: 5px; }
+    .lang-zh  { background: rgba(0,212,255,0.12);  color: var(--cyan);  border: 1px solid rgba(0,212,255,0.3);  }
+    .lang-en  { background: rgba(74,222,128,0.12); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+    .lang-mix   { background: rgba(245,200,66,0.12); color: var(--gold);  border: 1px solid rgba(245,200,66,0.3); }
+    .lang-accent { background: rgba(255,107,157,0.12); color: var(--pink); border: 1px solid rgba(255,107,157,0.3); }
+    .cite { font-size: 9px; font-weight: 700; color: #a78bfa; vertical-align: super; margin-left: 1px; cursor: default; }
+    /* ── References ── */
+    .ref-list { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+    .ref-item { display: flex; gap: 16px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; font-size: 13.5px; line-height: 1.65; color: var(--muted); transition: border-color 0.2s, background 0.2s; }
+    .ref-item:hover { border-color: rgba(124,92,252,0.3); background: rgba(124,92,252,0.04); }
+    .ref-item a { color: #a78bfa; text-decoration: none; }
+    .ref-item a:hover { text-decoration: underline; }
+    .ref-num { flex-shrink: 0; width: 28px; font-weight: 700; font-size: 12px; color: #a78bfa; padding-top: 2px; }
+    .ref-body { flex: 1; }
+    .ref-title { color: var(--text); }
     .metric-major-label { font-size: 12px; font-weight: 700; color: #a78bfa; padding: 4px 14px; background: rgba(124,92,252,0.1); border-radius: 6px; border: 1px solid rgba(124,92,252,0.2); letter-spacing: 0.4px; }
     .bar-fill {
       width: 12px; border-radius: 5px 5px 0 0; min-height: 2px;
@@ -375,6 +391,7 @@
     <a href="#about">About</a>
     <a href="#results">Results</a>
     <a href="#demos">Demos</a>
+    <a href="#references">References</a>
   </div>
 </nav>
 
@@ -473,9 +490,9 @@
           <thead>
             <tr>
               <th class="left-align" rowspan="2">Model</th>
-              <th colspan="4" class="dataset-header">Video-Internal-Eval</th>
-              <th colspan="4" class="dataset-header">Video-Internal-Eval-zh</th>
-              <th colspan="4" class="dataset-header">Video-Internal-Eval-en</th>
+              <th colspan="4" class="dataset-header">Video-Internal-Eval<span class="lang-badge lang-mix">ZH/EN</span></th>
+              <th colspan="4" class="dataset-header">Video-Internal-Eval-zh<span class="lang-badge lang-zh">ZH</span></th>
+              <th colspan="4" class="dataset-header">Video-Internal-Eval-en<span class="lang-badge lang-en">EN</span></th>
             </tr>
             <tr>
               <th>WER↓</th><th>cpWER↓</th><th>DER↓</th><th>∆cp↓</th>
@@ -491,7 +508,7 @@
               <td>55.40</td><td>68.82</td><td>100.95</td><td>13.42</td>
             </tr>
             <tr>
-              <td class="model-name">VibeVoice-ASR</td>
+              <td class="model-name">VibeVoice-ASR<sup class="cite">[1]</sup></td>
               <td>16.45</td><td>58.60</td><td>47.18</td><td>42.15</td>
               <td>17.70</td><td>62.06</td><td>47.65</td><td>44.36</td>
               <td>7.11</td><td>32.65</td><td>44.62</td><td>25.54</td>
@@ -528,9 +545,9 @@
           <thead>
             <tr>
               <th class="left-align" rowspan="2">Model</th>
-              <th colspan="4" class="dataset-header">AISHELL4-Eval</th>
-              <th colspan="4" class="dataset-header">Alimeeting-Far</th>
-              <th colspan="4" class="dataset-header">AMI-SDM</th>
+              <th colspan="4" class="dataset-header">AISHELL4-Eval<sup class="cite">[2]</sup><span class="lang-badge lang-zh">ZH</span></th>
+              <th colspan="4" class="dataset-header">Alimeeting-Far<sup class="cite">[3]</sup><span class="lang-badge lang-zh">ZH</span></th>
+              <th colspan="4" class="dataset-header">AMI-SDM<sup class="cite">[5]</sup><span class="lang-badge lang-en">EN</span></th>
             </tr>
             <tr>
               <th>WER↓</th><th>cpWER↓</th><th>DER↓</th><th>∆cp↓</th>
@@ -546,7 +563,7 @@
               <td>31.66</td><td>39.98</td><td>50.28</td><td>8.32</td>
             </tr>
             <tr>
-              <td class="model-name">VibeVoice-ASR</td>
+              <td class="model-name">VibeVoice-ASR<sup class="cite">[1]</sup></td>
               <td>22.19</td><td>26.16</td><td>8.94</td><td>3.97</td>
               <td>34.31</td><td>39.92</td><td>19.62</td><td>5.61</td>
               <td>30.53</td><td>35.86</td><td>21.00</td><td>5.33</td>
@@ -570,7 +587,7 @@
   <!-- ── Table Group 3: Challenge Sets ── -->
   <div class="table-group reveal">
     <div class="table-label">
-      Challenge Set Evaluation
+      MLC-SLM Challenge Evaluation
       <div class="view-toggle">
         <button class="toggle-btn active" onclick="setView('challenge','table',this)">⊞ Table</button>
         <button class="toggle-btn"        onclick="setView('challenge','chart',this)">▦ Chart</button>
@@ -583,8 +600,8 @@
           <thead>
             <tr>
               <th class="left-align" rowspan="2">Model</th>
-              <th colspan="4" class="dataset-header">MLC-SLM-Eval-1</th>
-              <th colspan="4" class="dataset-header">MLC-SLM-Eval-2</th>
+              <th colspan="4" class="dataset-header">MLC-SLM-Track1<sup class="cite">[4]</sup><span class="lang-badge lang-en">EN</span><span class="lang-badge lang-accent">Multi-Accent</span></th>
+              <th colspan="4" class="dataset-header">MLC-SLM-Track2<sup class="cite">[4]</sup><span class="lang-badge lang-en">EN</span><span class="lang-badge lang-accent">Multi-Accent</span></th>
             </tr>
             <tr>
               <th>WER↓</th><th>cpWER↓</th><th>DER↓</th><th>∆cp↓</th>
@@ -598,7 +615,7 @@
               <td>26.73</td><td>32.19</td><td>46.19</td><td>5.46</td>
             </tr>
             <tr>
-              <td class="model-name">VibeVoice-ASR</td>
+              <td class="model-name">VibeVoice-ASR<sup class="cite">[1]</sup></td>
               <td>10.30</td><td>13.45</td><td>6.27</td><td>3.15</td>
               <td class="best">7.97</td><td class="best">11.38</td><td class="best">3.14</td><td>3.41</td>
             </tr>
@@ -750,6 +767,62 @@
   </div>
 </div>
 
+<!-- ════════════════════════════════ REFERENCES ════════════════════════════════ -->
+<div id="references" style="padding:80px 40px 60px;max-width:1000px;margin:0 auto;">
+  <div class="reveal">
+    <div class="section-tag">Cite</div>
+    <h2 class="section-title">References</h2>
+  </div>
+  <div class="ref-list reveal">
+
+    <div class="ref-item">
+      <span class="ref-num">[1]</span>
+      <div class="ref-body">
+        Z. Peng, J. Yu, Y. Chang et al., &ldquo;<span class="ref-title">VIBEVOICE-ASR Technical Report</span>,&rdquo;
+        <em>CoRR</em>, vol. abs/2601.18184, 2026.
+        <a href="https://arxiv.org/abs/2601.18184" target="_blank">[Link]</a>
+      </div>
+    </div>
+
+    <div class="ref-item">
+      <span class="ref-num">[2]</span>
+      <div class="ref-body">
+        Y. Fu, L. Cheng, S. Lv et al., &ldquo;<span class="ref-title">AISHELL-4: An Open Source Dataset for Speech Enhancement, Separation, Recognition and Speaker Diarization in Conference Scenario</span>,&rdquo;
+        in <em>Proc. Interspeech</em>, pp. 3665&ndash;3669, 2021.
+        <a href="https://www.isca-archive.org/interspeech_2021/fu21b_interspeech.html" target="_blank">[Link]</a>
+      </div>
+    </div>
+
+    <div class="ref-item">
+      <span class="ref-num">[3]</span>
+      <div class="ref-body">
+        Y. Liang, M. Shi, F. Yu et al., &ldquo;<span class="ref-title">The Second Multi-Channel Multi-Party Meeting Transcription Challenge (M2MeT 2.0): A Benchmark for Speaker-Attributed ASR</span>,&rdquo;
+        in <em>Proc. ASRU</em>, pp. 1&ndash;8, IEEE, 2023.
+        <a href="https://ieeexplore.ieee.org/abstract/document/10389625" target="_blank">[Link]</a>
+      </div>
+    </div>
+
+    <div class="ref-item">
+      <span class="ref-num">[4]</span>
+      <div class="ref-body">
+        B. Mu, P. Guo, Z. Sun et al., &ldquo;<span class="ref-title">Summary on The Multilingual Conversational Speech Language Model Challenge: Datasets, Tasks, Baselines, and Methods</span>,&rdquo;
+        <em>CoRR</em>, vol. abs/2509.13785, 2025.
+        <a href="https://arxiv.org/abs/2509.13785" target="_blank">[Link]</a>
+      </div>
+    </div>
+
+    <div class="ref-item">
+      <span class="ref-num">[5]</span>
+      <div class="ref-body">
+        J. Carletta, S. Ashby, S. Bourban et al., &ldquo;<span class="ref-title">The AMI Meeting Corpus: A Pre-announcement</span>,&rdquo;
+        in <em>Machine Learning for Multimodal Interaction (MLMI)</em>, LNCS, pp. 28&ndash;39, Springer, 2005.
+        <a href="https://doi.org/10.1007/11677482_3" target="_blank">[Link]</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
 <footer>
   <div class="footer-links">
@@ -779,6 +852,7 @@ const MODEL_COLORS = {
 const CHART_DATA = {
   video: {
     datasets: ['Video-Internal', 'Internal-zh', 'Internal-en'],
+    langs: ['mix', 'zh', 'en'],
     values: {
       'Gemini-2.5-Pro': [
         { WER: 22.47, cpWER: 44.13, DER: 74.05, dcp: 21.66 },
@@ -799,6 +873,7 @@ const CHART_DATA = {
   },
   meeting: {
     datasets: ['AISHELL4', 'AliMeeting', 'AMI-SDM'],
+    langs: ['zh', 'zh', 'en'],
     values: {
       'Gemini-2.5-Pro': [
         { WER: 19.81, cpWER: 25.11, DER: 36.07, dcp: 5.30 },
@@ -819,6 +894,7 @@ const CHART_DATA = {
   },
   challenge: {
     datasets: ['MLC-SLM-1', 'MLC-SLM-2'],
+    langs: ['en', 'en'],
     values: {
       'Gemini-2.5-Pro': [
         { WER: 36.87, cpWER: 41.88, DER: 42.33, dcp: 5.01 },
@@ -857,6 +933,7 @@ function renderChart(groupKey) {
     }));
   });
 
+  const LANG_TEXT = { zh: 'ZH', en: 'EN', mix: 'ZH/EN' };
   let html = '<div class="chart-bars-area">';
   METRICS.forEach(({ key, label }) => {
     html += '<div class="metric-major-group"><div class="metric-ds-row">';
@@ -867,7 +944,9 @@ function renderChart(groupKey) {
         const h   = Math.max(2, Math.round((val / metricMax[key]) * MAX_H));
         html += `<div class="bar-fill" style="height:0;background:${MODEL_COLORS[m]}" data-val="${val}" data-target="${h}"></div>`;
       });
-      html += `</div><div class="ds-mini-label">${dsLabel}</div></div>`;
+      const lang = group.langs ? group.langs[di] : null;
+      const badge = lang ? `<span class="lang-badge lang-${lang}" style="margin-left:0;font-size:8px;padding:0 4px">${LANG_TEXT[lang]}</span>` : '';
+      html += `</div><div class="ds-mini-label"><span class="ds-label-text">${dsLabel}</span>${badge}</div></div>`;
     });
     html += `</div><div class="metric-major-label">${label}</div></div>`;
   });
